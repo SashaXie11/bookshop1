@@ -1,0 +1,309 @@
+{
+    "definitions": {
+        "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectType": {
+            "kind": "entity",
+            "@cds.persistence.skip": true,
+            "elements": {
+                "ProjectUUID": {
+                    "key": true,
+                    "type": "cds.UUID"
+                },
+                "ProjectInternalID": {
+                    "type": "cds.String",
+                    "length": 24
+                },
+                "Project": {
+                    "type": "cds.String",
+                    "length": 24
+                },
+                "ProjectDescription": {
+                    "type": "cds.String",
+                    "length": 40
+                },
+                "EnterpriseProjectType": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "PriorityCode": {
+                    "type": "cds.String",
+                    "length": 3
+                },
+                "ProjectStartDate": {
+                    "type": "cds.Date"
+                },
+                "ProjectEndDate": {
+                    "type": "cds.Date"
+                },
+                "ProcessingStatus": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "ResponsibleCostCenter": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "ProfitCenter": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "ProjectManagerUUID": {
+                    "type": "cds.UUID"
+                },
+                "ProjectProfileCode": {
+                    "type": "cds.String",
+                    "length": 7
+                },
+                "FunctionalArea": {
+                    "type": "cds.String",
+                    "length": 16
+                },
+                "CompanyCode": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "ControllingArea": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "Plant": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "Location": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "LastChangeDateTime": {
+                    "type": "cds.Timestamp"
+                },
+                "to_EnterpriseProjectElement": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectElementType",
+                    "cardinality": {
+                        "max": "*"
+                    },
+                    "on": [
+                        {
+                            "ref": [
+                                "to_EnterpriseProjectElement",
+                                "ProjectUUID"
+                            ]
+                        },
+                        "=",
+                        {
+                            "ref": [
+                                "ProjectUUID"
+                            ]
+                        }
+                    ]
+                },
+                "to_EnterpriseProjectJVA": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectJVAType"
+                }
+            }
+        },
+        "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectElementType": {
+            "kind": "entity",
+            "@cds.persistence.skip": true,
+            "elements": {
+                "ProjectElementUUID": {
+                    "key": true,
+                    "type": "cds.UUID"
+                },
+                "ProjectElement": {
+                    "type": "cds.String",
+                    "length": 24
+                },
+                "WBSElementInternalID": {
+                    "type": "cds.String",
+                    "length": 8
+                },
+                "ProjectUUID": {
+                    "type": "cds.UUID"
+                },
+                "ProjectElementDescription": {
+                    "type": "cds.String",
+                    "length": 40
+                },
+                "ParentObjectUUID": {
+                    "type": "cds.UUID"
+                },
+                "ProcessingStatus": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "SortingNumber": {
+                    "type": "cds.String",
+                    "length": 5
+                },
+                "PlannedStartDate": {
+                    "type": "cds.Date"
+                },
+                "PlannedEndDate": {
+                    "type": "cds.Date"
+                },
+                "ResponsibleCostCenter": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "CompanyCode": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "ProfitCenter": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "FunctionalArea": {
+                    "type": "cds.String",
+                    "length": 16
+                },
+                "ControllingArea": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "Plant": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "Location": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "FactoryCalendar": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "CostingSheet": {
+                    "type": "cds.String",
+                    "length": 6
+                },
+                "InvestmentProfile": {
+                    "type": "cds.String",
+                    "length": 6
+                },
+                "WBSIsStatisticalWBSElement": {
+                    "type": "cds.Boolean"
+                },
+                "CostCenter": {
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "CreatedByUser": {
+                    "type": "cds.String",
+                    "length": 12
+                },
+                "CreationDateTime": {
+                    "type": "cds.Timestamp"
+                },
+                "LastChangeDateTime": {
+                    "type": "cds.Timestamp"
+                },
+                "LastChangedByUser": {
+                    "type": "cds.String",
+                    "length": 12
+                },
+                "ProjectLastChangedDateTime": {
+                    "type": "cds.Timestamp"
+                },
+                "to_EnterpriseProject": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectType"
+                },
+                "to_EntProjectElementJVA": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EntProjectElementJVAType"
+                },
+                "to_ParentProjElement": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectElementType"
+                },
+                "to_SubProjElement": {
+                    "type": "cds.Association",
+                    "target": "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectElementType",
+                    "cardinality": {
+                        "max": "*"
+                    }
+                }
+            }
+        },
+        "API_ENTERPRISE_PROJECT_SRV.A_EnterpriseProjectJVAType": {
+            "kind": "entity",
+            "@cds.persistence.skip": true,
+            "elements": {
+                "ProjectUUID": {
+                    "key": true,
+                    "type": "cds.UUID"
+                },
+                "JointVenture": {
+                    "type": "cds.String",
+                    "length": 6
+                },
+                "JointVentureCostRecoveryCode": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "JointVentureEquityType": {
+                    "type": "cds.String",
+                    "length": 3
+                },
+                "JntVntrProjectType": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "JntIntrstBillgClass": {
+                    "type": "cds.String",
+                    "length": 3
+                },
+                "JntIntrstBillgSubClass": {
+                    "type": "cds.String",
+                    "length": 5
+                },
+                "ProjectLastChangedDateTime": {
+                    "type": "cds.Timestamp"
+                }
+            }
+        },
+        "API_ENTERPRISE_PROJECT_SRV.A_EntProjectElementJVAType": {
+            "kind": "entity",
+            "@cds.persistence.skip": true,
+            "elements": {
+                "ProjectElementUUID": {
+                    "key": true,
+                    "type": "cds.UUID"
+                },
+                "ProjectUUID": {
+                    "type": "cds.UUID"
+                },
+                "JointVenture": {
+                    "type": "cds.String",
+                    "length": 6
+                },
+                "JointVentureCostRecoveryCode": {
+                    "type": "cds.String",
+                    "length": 2
+                },
+                "JointVentureEquityType": {
+                    "type": "cds.String",
+                    "length": 3
+                },
+                "JntVntrProjectType": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "JntIntrstBillgClass": {
+                    "type": "cds.String",
+                    "length": 3
+                },
+                "JntIntrstBillgSubClass": {
+                    "type": "cds.String",
+                    "length": 5
+                },
+                "ProjectLastChangedDateTime": {
+                    "type": "cds.Timestamp"
+                }
+            }
+        }
+    }
+}
